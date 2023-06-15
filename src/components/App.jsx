@@ -1,18 +1,17 @@
-import React from 'react';
-import Layout from './layout';
+import ContactForm from './ContactForm';
+import ContactList from './ContactList';
+import Filter from './Filter';
+import Layout from 'components/Layout';
+import { MainTitle, SubTitle } from './Titles';
 
-class App extends React.Component {
-  state = {
-    //
-  };
-
-  render() {
-    return (
-      <Layout>
-        React homework template <br />
-      </Layout>
-    );
-  }
-}
+const App = () => (
+  <Layout>
+    <MainTitle title="Phonebook" />
+    <ContactForm />
+    <SubTitle title="Contacts" />
+    <Filter />
+    <ContactList />
+  </Layout>
+);
 
 export default App;
