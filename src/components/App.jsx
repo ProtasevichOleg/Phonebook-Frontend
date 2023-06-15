@@ -1,7 +1,7 @@
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
-import Layout from 'components/Layout';
+import Layout from 'Layout';
 import { MainTitle, SubTitle } from './Titles';
 
 const App = () => (
