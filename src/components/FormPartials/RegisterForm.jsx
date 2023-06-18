@@ -6,7 +6,7 @@ import { handleAuthFieldBlur } from 'utils';
 import { Form, Label, FormAlert, SubmitButton } from 'components/FormPartials';
 
 const RegisterForm = () => {
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
@@ -20,7 +20,7 @@ const RegisterForm = () => {
   const { isLoading, error } = useSelector(state => state.auth);
 
   const handleUsernameBlur = () =>
-    handleAuthFieldBlur('Username', username, setUsernameFieldAlert);
+    handleAuthFieldBlur('Username', name, setUsernameFieldAlert);
 
   const handleEmailBlur = () =>
     handleAuthFieldBlur('Email', email, setEmailFieldAlert);
@@ -43,9 +43,9 @@ const RegisterForm = () => {
     event.preventDefault();
 
     if (password === confirm) {
-      dispatch(register({ username, email, password }));
+      dispatch(register({ name, email, password }));
       if (!isLoading && !error) {
-        setUsername('');
+        setName('');
         setEmail('');
         setPassword('');
         setConfirm('');
@@ -57,7 +57,7 @@ const RegisterForm = () => {
     }
   };
 
-  const handleUsernameInputChange = event => setUsername(event.target.value);
+  const handleUsernameInputChange = event => setName(event.target.value);
   const handleEmailInputChange = event => setEmail(event.target.value);
   const handlePasswordInputChange = event => setPassword(event.target.value);
   const handleConfirmInputChange = event => setConfirm(event.target.value);
@@ -67,8 +67,8 @@ const RegisterForm = () => {
       <Label
         labelTitle="Username"
         type="text"
-        name="username"
-        value={username}
+        name="name"
+        value={name}
         onChange={handleUsernameInputChange}
         onBlur={handleUsernameBlur}
         validationStatus={usernameFieldAlert}
