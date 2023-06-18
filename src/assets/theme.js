@@ -1,5 +1,7 @@
 const theme = {
   colors: {
+    mainText: '#282c34',
+    mainTextAccent: '#3f51b5',
     label: '#000000',
     itemBorder: '#cccccc',
     inputBorder: '#cccccc',

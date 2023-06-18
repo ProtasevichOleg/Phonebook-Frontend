@@ -2,12 +2,13 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import NProgress from 'nprogress';
 
-axios.defaults.baseURL = 'https://648884700e2469c038fde8b8.mockapi.io';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 export const fetchContacts = createAsyncThunk(
-  'contacts/fetchAll',
+  'contacts/fetchContacts',
   async (_, thunkAPI) => {
     try {
+      NProgress.configure({ showSpinner: false });
       NProgress.start();
       const response = await axios.get('/contacts');
       NProgress.done();
@@ -21,10 +22,11 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async (contact, thunkAPI) => {
+  async (subscriber, thunkAPI) => {
     try {
+      NProgress.configure({ showSpinner: false });
       NProgress.start();
-      const response = await axios.post('/contacts', contact);
+      const response = await axios.post('/contacts', subscriber);
       NProgress.done();
       return response.data;
     } catch (error) {
@@ -38,6 +40,7 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
+      NProgress.configure({ showSpinner: false });
       NProgress.start();
       const response = await axios.delete(`/contacts/${contactId}`);
       NProgress.done();

@@ -1,25 +1,37 @@
-import {
-  Container,
-  Header,
-  Nav,
-  Main,
-  Footer,
-  Copyright,
-} from './Layout.styled';
-import Spinner from 'components/Spinner';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const Layout = ({ children }) => {
+import { Spinner, Container } from 'components/Common';
+import { AnonhymusHeader, UserHeader } from 'components/Header';
+import { LayoutWrapper, Header, HeaderContent } from './Layout.styled';
+import { Main, Footer, FooterContent, Copyright } from './Layout.styled';
+
+const Layout = () => {
+  const { isLoggedIn } = useSelector(state => state.auth);
   return (
-    <Container>
+    <LayoutWrapper>
       <Header>
-        <Spinner />
-        <Nav>PHONEBOOK</Nav>
+        <Container>
+          <HeaderContent>
+            {!isLoggedIn && <AnonhymusHeader />}
+            {isLoggedIn && <UserHeader />}
+          </HeaderContent>
+        </Container>
       </Header>
-      <Main>{children}</Main>
+      <Main>
+        <Suspense fallback={<Spinner />}>
+          <Outlet />
+        </Suspense>
+      </Main>
       <Footer>
-        <Copyright>© Developed by Oleh Protasevych 2023</Copyright>
+        <Container>
+          <FooterContent>
+            <Copyright>© Developed by Oleh Protasevych 2023</Copyright>
+          </FooterContent>
+        </Container>
       </Footer>
-    </Container>
+    </LayoutWrapper>
   );
 };
 export default Layout;
