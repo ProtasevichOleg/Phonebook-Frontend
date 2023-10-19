@@ -1,113 +1,107 @@
-# React homework template
+# Phonebook
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+### The technology stack used in the project:
 
-## Создание репозитория по шаблону
+<code><img height="55" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React" /></code>
+<code><img height="55" src="https://user-images.githubusercontent.com/25181517/187896150-cc1dcb12-d490-445c-8e4d-1275cd2388d6.png" alt="Redux" title="Redux" /></code>
+<code><img height="55" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" alt="styled-components" title="styled-components" /></code>
+<code><img height="55" src="https://avatars.githubusercontent.com/u/32372333?s=48&v=4" alt="axios" title="axios" /></code>
+<code><img height="55" src="https://user-images.githubusercontent.com/25181517/192108891-d86b6220-e232-423a-bf5f-90903e6887c3.png" alt="Visual Studio Code" title="Visual Studio Code" /></code>
+<code><img height="55" src="https://user-images.githubusercontent.com/25181517/189715289-df3ee512-6eca-463f-a0f4-c10d94a06b2f.png" alt="Figma" title="Figma" /></code>
+<code><img height="55" src="https://user-images.githubusercontent.com/25181517/192108372-f71d70ac-7ae6-4c0d-8395-51d8870c2ef0.png" alt="Git" title="Git" /></code>
+<code><img height="55" src="https://user-images.githubusercontent.com/25181517/192108374-8da61ba1-99ec-41d7-80b8-fb2f7c0a4948.png" alt="GitHub" title="GitHub" /></code>
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+## Description
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+Phonebook is a React-based application facilitating an intuitive contact management experience. It features a sleek user interface with secure authentication mechanisms. The application is hosted [here](https://protasevicholeg.github.io/goit-react-hw-08-phonebook).
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+## Table of Contents
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+- [Getting Started](#getting-started)
+    - [Installation](#installation)
+    - [Usage](#usage)
+- [Features](#features)
+    - [Authentication](#authentication)
+    - [Authorized User Features](#authorized-user-features)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
+## Getting Started
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+### Installation
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
-
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
-
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
-
-## Подготовка к работе
-
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
-
-## Деплой
-
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
-
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
+1. Clone the repository: 
+```bash
+git clone https://github.com/ProtasevichOleg/goit-react-hw-08-phonebook.git
+```
+2. Navigate to the project directory: 
+```bash
+cd goit-react-hw-08-phonebook
+```
+3. Install dependencies: 
+```bash
+npm install
 ```
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
+### Usage
 
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
-
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
+1. Run the application: 
+```bash
+npm start
 ```
+2. Open your web browser and visit [http://localhost:3000/goit-react-hw-08-phonebook](http://localhost:3000/goit-react-hw-08-phonebook)
 
-## Как это работает
+## Features
 
-![How it works](./assets/how-it-works.png)
+### Authentication
 
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+Upon launching the application, users are greeted with a login/register interface enabling secure access.
+
+- **Register**:
+    - Path: `/register`
+    - Fields: Username, Email, Password, Confirm Password
+    - Additional Feature: User-friendly validation messages.
+    - Navigation: Option to navigate to the Login page if already registered.
+
+    ![Register Screen](https://res.cloudinary.com/dc65egkoj/image/upload/v1697728484/protasevych-md-content/phonebook/register.png)
+
+- **Login**:
+    - Path: `/login`
+    - Fields: Email, Password
+    - Additional Feature: User-friendly validation messages.
+    - Navigation: Option to navigate to the Register page if not registered yet.
+
+    ![Login Screen](https://res.cloudinary.com/dc65egkoj/image/upload/v1697728713/protasevych-md-content/phonebook/login.png)
+
+### Authorized User Features
+
+Upon successful authentication, users are navigated to the home page with an invitation to manage contacts.
+
+- **Home**:
+    - Path: `/`
+    - Message: "Welcome to PHONEBOOK! Go to the Contacts tab and manage your contacts!"
+
+- **Contacts**:
+    - Path: `/contacts`
+    - Features:
+        - **Add Contact**:
+            - Fields: Name, Number
+            - Validation: User-friendly messages for each field.
+
+            ![Add Contact](https://res.cloudinary.com/dc65egkoj/image/upload/v1697728985/protasevych-md-content/phonebook/addcontact.png)
+
+        - **View Contacts**:
+            - Search: Facility to search contacts by name.
+            - List: A list displaying all user contacts.
+
+            ![View Contacts](https://res.cloudinary.com/dc65egkoj/image/upload/v1697729175/protasevych-md-content/phonebook/contactlist.png)
+
+## Contributing
+
+Feel free to fork the project, create a new branch for your work, and open a PR!
+
+## Contact
+
+For additional information or inquiries, feel free to reach out at [protasevicholeg@gmail.com].
+
+[GitHub Profile](https://github.com/ProtasevichOleg)
