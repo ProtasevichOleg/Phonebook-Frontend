@@ -70,7 +70,8 @@ const refreshUser = createAsyncThunk(
     try {
       NProgress.configure({ showSpinner: false });
       NProgress.start();
-      const response = await axios.get('/users/current');
+      const response = await axios.get('/auth/current');
+      // const response = await axios.get('/users/current');
       NProgress.done();
       return response.data;
     } catch (error) {
