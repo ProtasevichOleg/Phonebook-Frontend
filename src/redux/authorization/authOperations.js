@@ -2,7 +2,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import NProgress from 'nprogress';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+// axios.defaults.baseURL = 'https://localhost:3000/api';
+axios.defaults.baseURL = 'https://phonebook-backend-6em0.onrender.com/api';
 const setAuthHeader = token =>
   (axios.defaults.headers.common.Authorization = `Bearer ${token}`);
 const cleanAuthHeader = () =>
