@@ -64,8 +64,8 @@ const logOut = createAsyncThunk(
 const refreshUser = createAsyncThunk(
   'auth/refreshUser',
   async (_, { getState, rejectWithValue }) => {
-    // const { token } = getState().auth;
-    // token && setAuthHeader(token);
+    const { token } = getState().auth;
+    token && setAuthHeader(token);
 
     try {
       NProgress.configure({ showSpinner: false });
