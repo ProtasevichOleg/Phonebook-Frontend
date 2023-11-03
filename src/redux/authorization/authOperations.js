@@ -4,6 +4,7 @@ import NProgress from 'nprogress';
 
 // axios.defaults.baseURL = 'https://localhost:3000/api';
 axios.defaults.baseURL = 'https://phonebook-backend-6em0.onrender.com/api';
+axios.defaults.withCredentials = true;
 const setAuthHeader = token =>
   (axios.defaults.headers.common.Authorization = `Bearer ${token}`);
 const cleanAuthHeader = () =>
@@ -15,8 +16,8 @@ const register = createAsyncThunk(
     try {
       NProgress.configure({ showSpinner: false });
       NProgress.start();
-      setAuthHeader(response.data.token);
       const response = await axios.post('/auth/register', user);
+      // setAuthHeader(response.data.token);
       NProgress.done();
       return response.data;
     } catch (error) {
@@ -63,8 +64,8 @@ const logOut = createAsyncThunk(
 const refreshUser = createAsyncThunk(
   'auth/refreshUser',
   async (_, { getState, rejectWithValue }) => {
-    const { token } = getState().auth;
-    token && setAuthHeader(token);
+    // const { token } = getState().auth;
+    // token && setAuthHeader(token);
 
     try {
       NProgress.configure({ showSpinner: false });
