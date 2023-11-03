@@ -15,8 +15,8 @@ const register = createAsyncThunk(
     try {
       NProgress.configure({ showSpinner: false });
       NProgress.start();
-      const response = await axios.post('/users/signup', user);
       setAuthHeader(response.data.token);
+      const response = await axios.post('/auth/register', user);
       NProgress.done();
       return response.data;
     } catch (error) {
@@ -32,7 +32,7 @@ const loginization = createAsyncThunk(
     try {
       NProgress.configure({ showSpinner: false });
       NProgress.start();
-      const response = await axios.post('/users/login', user);
+      const response = await axios.post('/auth/login', user);
       setAuthHeader(response.data.token);
       NProgress.done();
       return response.data;
@@ -49,7 +49,7 @@ const logOut = createAsyncThunk(
     try {
       NProgress.configure({ showSpinner: false });
       NProgress.start();
-      await axios.post('/users/logout', user);
+      await axios.post('/auth/logout', user);
       cleanAuthHeader();
       NProgress.done();
       return;
