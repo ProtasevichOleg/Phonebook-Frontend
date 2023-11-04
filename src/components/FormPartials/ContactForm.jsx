@@ -70,7 +70,6 @@ const ContactForm = () => {
     }
 
     const contact = {
-      id: nanoid(),
       name: name,
       phone: phone,
       email: email,

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import NProgress from 'nprogress';
 
-// axios.defaults.baseURL = 'https://localhost:3000/api';
+// axios.defaults.baseURL = 'http://localhost:3000/api';
 axios.defaults.baseURL = 'https://phonebook-backend-6em0.onrender.com/api';
 axios.defaults.withCredentials = true;
 const setAuthHeader = token =>
