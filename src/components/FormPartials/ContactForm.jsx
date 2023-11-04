@@ -7,22 +7,27 @@ import {
   isFieldEmpty,
   isContactExist,
   isPhoneNumberValid,
+  isEmailValid,
 } from 'utils';
 import {
   nameValidationMessage,
   phoneValidationMessage,
+  emailValidationMessage,
 } from 'assets';
 import { Form, Label, FormAlert, SubmitButton } from 'components/FormPartials';
 
 const ContactForm = () => {
   const [nameFieldNotification, setNameFieldNotification] = useState(null);
   const [phoneFieldNotification, setPhoneFieldNotification] = useState(null);
+  const [emailFieldNotification, setEmailFieldNotification] = useState(null);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const nameInputId = useRef(nanoid());
   const phoneInputId = useRef(nanoid());
+  const emailInputId = useRef(nanoid());
 
   const handleContactsFieldBlur = useMemo(
     () => (fieldName, fieldValue, setAlert) => {
@@ -31,7 +36,8 @@ const ContactForm = () => {
         fieldName === 'Phone number' &&
         !isPhoneNumberValid(fieldValue, setAlert)
       )
-        return;
+        if (fieldName === 'Email' && !isEmailValid(fieldValue, setAlert))
+          return;
       if (isContactExist(contacts, fieldName, fieldValue, setAlert)) return;
       setAlert({
         type: 'success',
@@ -46,6 +52,9 @@ const ContactForm = () => {
 
   const handlePhoneBlur = () =>
     handleContactsFieldBlur('Phone number', phone, setPhoneFieldNotification);
+
+  const handleEmailBlur = () =>
+    handleContactsFieldBlur('Email', email, setEmailFieldNotification);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -64,17 +73,21 @@ const ContactForm = () => {
       id: nanoid(),
       name: name,
       phone: phone,
+      email: email,
     };
 
     dispatch(addContact(contact));
     setName('');
     setPhone('');
+    setEmail('');
     setNameFieldNotification(null);
     setPhoneFieldNotification(null);
+    setEmailFieldNotification(null);
   };
 
   const handleNameInputChange = event => setName(event.target.value);
   const handlePhoneInputChange = event => setPhone(event.target.value);
+  const handleEmailInputChange = event => setEmail(event.target.value);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -102,7 +115,18 @@ const ContactForm = () => {
         title={phoneValidationMessage}
       />
       <FormAlert fieldAlert={phoneFieldNotification} />
+      <Label
+        labelTitle="Email"
+        type="email"
+        name="email"
+        value={email}
+        onChange={handleEmailInputChange}
+        onBlur={handleEmailBlur}
+        validationStatus={emailFieldNotification}
+        id={emailInputId.current}
+        title={emailValidationMessage}
       />
+      <FormAlert fieldAlert={emailFieldNotification} />
       <SubmitButton buttonText="Add contact" />
     </Form>
   );
