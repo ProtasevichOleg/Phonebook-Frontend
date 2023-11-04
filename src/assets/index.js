@@ -4,3 +4,4 @@ export {
   nameValidationMessage,
   phoneValidationMessage,
   emailValidationMessage,
+} from './validationMessages';
