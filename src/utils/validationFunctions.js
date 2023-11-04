@@ -11,7 +11,9 @@ export const isFieldEmpty = (fieldName, fieldValue, setNotification) => {
 };
 
 export const isPhoneNumberValid = (phoneNumber, setNotification) => {
-  const phoneNumberRegex = new RegExp('^\\+?[0-9\\s\\-\\(\\)]+$');
+  const phoneNumberRegex = new RegExp(
+    '^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,8})+$'
+  );
   const validatePhoneNumber = phoneNumberRegex.test(phoneNumber.trim());
 
   if (!validatePhoneNumber) {

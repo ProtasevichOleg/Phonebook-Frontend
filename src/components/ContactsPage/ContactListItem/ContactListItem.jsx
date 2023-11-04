@@ -8,18 +8,18 @@ import {
   DeleteButton,
 } from './ContactListItem.styled';
 
-const ContactListItem = ({ name, number, id }) => {
+const ContactListItem = ({ name, phone, _id }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteContact(id));
+    dispatch(deleteContact(_id));
   };
 
   return (
     <ContactItem>
       <ContactInfoList>
         <ContactInfoItem className="name">{name}</ContactInfoItem>
-        <ContactInfoItem>{number}</ContactInfoItem>
+        <ContactInfoItem>{phone}</ContactInfoItem>
       </ContactInfoList>
       <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
     </ContactItem>
@@ -28,8 +28,8 @@ const ContactListItem = ({ name, number, id }) => {
 
 ContactListItem.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
 };
 
 export default ContactListItem;

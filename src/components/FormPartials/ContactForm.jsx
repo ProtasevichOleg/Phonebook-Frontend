@@ -3,19 +3,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 
 import { addContact, selectContacts } from 'redux/contacts';
-import { isFieldEmpty, isContactExist, isPhoneNumberValid } from 'utils';
-import { nameValidationMessage, numberValidationMessage } from 'assets';
+import {
+  isFieldEmpty,
+  isContactExist,
+  isPhoneNumberValid,
+} from 'utils';
+import {
+  nameValidationMessage,
+  phoneValidationMessage,
+} from 'assets';
 import { Form, Label, FormAlert, SubmitButton } from 'components/FormPartials';
 
 const ContactForm = () => {
   const [nameFieldNotification, setNameFieldNotification] = useState(null);
-  const [numberFieldNotification, setNumberFieldNotification] = useState(null);
+  const [phoneFieldNotification, setPhoneFieldNotification] = useState(null);
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const nameInputId = useRef(nanoid());
-  const numberInputId = useRef(nanoid());
+  const phoneInputId = useRef(nanoid());
 
   const handleContactsFieldBlur = useMemo(
     () => (fieldName, fieldValue, setAlert) => {
@@ -37,8 +44,8 @@ const ContactForm = () => {
   const handleNameBlur = () =>
     handleContactsFieldBlur('Name', name, setNameFieldNotification);
 
-  const handleNumberBlur = () =>
-    handleContactsFieldBlur('Phone number', number, setNumberFieldNotification);
+  const handlePhoneBlur = () =>
+    handleContactsFieldBlur('Phone number', phone, setPhoneFieldNotification);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -47,27 +54,27 @@ const ContactForm = () => {
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
 
-    const isNumberExist = contacts.find(contact => contact.number === number);
+    const isPhoneExist = contacts.find(contact => contact.phone === phone);
 
-    if (isNameExist || isNumberExist) {
+    if (isNameExist || isPhoneExist) {
       return;
     }
 
     const contact = {
       id: nanoid(),
       name: name,
-      number: number,
+      phone: phone,
     };
 
     dispatch(addContact(contact));
     setName('');
-    setNumber('');
+    setPhone('');
     setNameFieldNotification(null);
-    setNumberFieldNotification(null);
+    setPhoneFieldNotification(null);
   };
 
   const handleNameInputChange = event => setName(event.target.value);
-  const handleNumberInputChange = event => setNumber(event.target.value);
+  const handlePhoneInputChange = event => setPhone(event.target.value);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -84,17 +91,18 @@ const ContactForm = () => {
       />
       <FormAlert fieldAlert={nameFieldNotification} />
       <Label
-        labelTitle="Number"
+        labelTitle="Phone"
         type="tel"
-        name="number"
-        value={number}
-        onChange={handleNumberInputChange}
-        onBlur={handleNumberBlur}
-        validationStatus={numberFieldNotification}
-        id={numberInputId.current}
-        title={numberValidationMessage}
+        name="phone"
+        value={phone}
+        onChange={handlePhoneInputChange}
+        onBlur={handlePhoneBlur}
+        validationStatus={phoneFieldNotification}
+        id={phoneInputId.current}
+        title={phoneValidationMessage}
       />
-      <FormAlert fieldAlert={numberFieldNotification} />
+      <FormAlert fieldAlert={phoneFieldNotification} />
+      />
       <SubmitButton buttonText="Add contact" />
     </Form>
   );
