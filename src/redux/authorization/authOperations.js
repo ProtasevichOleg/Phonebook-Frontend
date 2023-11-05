@@ -17,7 +17,6 @@ const register = createAsyncThunk(
       NProgress.configure({ showSpinner: false });
       NProgress.start();
       const response = await axios.post('/auth/register', user);
-      // setAuthHeader(response.data.token);
       NProgress.done();
       return response.data;
     } catch (error) {

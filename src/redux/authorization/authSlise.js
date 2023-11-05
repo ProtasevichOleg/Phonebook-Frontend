@@ -41,7 +41,6 @@ const authSlise = createSlice({
         state.token = action.payload.token;
         state.user = action.payload.user;
         state.isLoggedIn = false;
-        // state.isLoggedIn = true;
         state.isLoading = false;
       })
       .addCase(register.rejected, handleRejected)

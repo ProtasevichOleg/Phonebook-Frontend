@@ -1,17 +1,23 @@
 import { logOut } from 'redux/authorization';
 import { useSelector, useDispatch } from 'react-redux';
-import { UserMenuStyled } from './UserMenu.styled';
+import {
+  UserMenuStyled,
+  Avatar,
+  UserName,
+  LogoutButton,
+} from './UserMenu.styled';
 
 const UserMenu = () => {
-  const { email } = useSelector(state => state.auth.user);
+  const { name, avatarURL } = useSelector(state => state.auth.user);
   const dispatch = useDispatch();
   const onLogoutBtnClick = () => dispatch(logOut());
   return (
     <UserMenuStyled>
-      <p>{email}</p>
-      <button type="button" onClick={onLogoutBtnClick}>
+      <Avatar src={avatarURL} alt="Avatar" />
+      <UserName>{name}</UserName>
+      <LogoutButton type="button" onClick={onLogoutBtnClick}>
         Log out
-      </button>
+      </LogoutButton>
     </UserMenuStyled>
   );
 };
