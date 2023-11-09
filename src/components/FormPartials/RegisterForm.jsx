@@ -10,7 +10,7 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
-  const [usernameFieldAlert, setUsernameFieldAlert] = useState(null);
+  const [nameFieldAlert, setNameFieldAlert] = useState(null);
   const [emailFieldAlert, setEmailFieldAlert] = useState(null);
   const [passwordFieldAlert, setPasswordFieldAlert] = useState(null);
   const [confirmFieldAlert, setConfirmFieldAlert] = useState(null);
@@ -19,8 +19,8 @@ const RegisterForm = () => {
 
   const { isLoading, error } = useSelector(state => state.auth);
 
-  const handleUsernameBlur = () =>
-    handleAuthFieldBlur('Username', name, setUsernameFieldAlert);
+  const handleNameBlur = () =>
+    handleAuthFieldBlur('Name', name, setNameFieldAlert);
 
   const handleEmailBlur = () =>
     handleAuthFieldBlur('Email', email, setEmailFieldAlert);
@@ -49,7 +49,7 @@ const RegisterForm = () => {
         setEmail('');
         setPassword('');
         setConfirm('');
-        setUsernameFieldAlert(null);
+        setNameFieldAlert(null);
         setEmailFieldAlert(null);
         setPasswordFieldAlert(null);
         setConfirmFieldAlert(null);
@@ -57,7 +57,7 @@ const RegisterForm = () => {
     }
   };
 
-  const handleUsernameInputChange = event => setName(event.target.value);
+  const handleNameInputChange = event => setName(event.target.value);
   const handleEmailInputChange = event => setEmail(event.target.value);
   const handlePasswordInputChange = event => setPassword(event.target.value);
   const handleConfirmInputChange = event => setConfirm(event.target.value);
@@ -65,15 +65,15 @@ const RegisterForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Label
-        labelTitle="Username"
+        labelTitle="Name"
         type="text"
         name="name"
         value={name}
-        onChange={handleUsernameInputChange}
-        onBlur={handleUsernameBlur}
-        validationStatus={usernameFieldAlert}
+        onChange={handleNameInputChange}
+        onBlur={handleNameBlur}
+        validationStatus={nameFieldAlert}
       />
-      <FormAlert fieldAlert={usernameFieldAlert} />
+      <FormAlert fieldAlert={nameFieldAlert} />
       <Label
         labelTitle="Email"
         type="email"

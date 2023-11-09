@@ -5,7 +5,7 @@ export const AlertWrapper = styled.div`
 `;
 
 export const Message = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   ${({ type }) => {
     switch (type) {
       case 'error':
