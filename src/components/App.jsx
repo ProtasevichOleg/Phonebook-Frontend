@@ -13,10 +13,13 @@ const RegisterPage = lazy(() => import('pages/RegisterPage'));
 
 const App = () => {
   const dispatch = useDispatch();
+  const { token } = useSelector(state => state.auth);
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    if (token) {
+      dispatch(refreshUser());
+    }
+  }, [dispatch, token]);
 
   const { isRefreshing } = useSelector(state => state.auth);
   return (
