@@ -13,7 +13,7 @@
 
 ## Description
 
-Phonebook is a React-based application facilitating an intuitive contact management experience. It features a sleek user interface with secure authentication mechanisms. The application is hosted [here](https://protasevicholeg.github.io/goit-react-hw-08-phonebook).
+Phonebook is a React-based application facilitating an intuitive contact management experience. It features a sleek user interface with secure authentication mechanisms. The application is hosted [here](https://protasevicholeg.github.io/Phonebook-Frontend/).
 
 ## Backend
 
@@ -36,11 +36,11 @@ Phonebook-Backend repository you can find [here](https://github.com/ProtasevichO
 
 1. Clone the repository: 
 ```bash
-git clone https://github.com/ProtasevichOleg/goit-react-hw-08-phonebook.git
+git clone https://github.com/ProtasevichOleg/Phonebook-Frontend.git
 ```
 2. Navigate to the project directory: 
 ```bash
-cd goit-react-hw-08-phonebook
+cd Phonebook-Frontend
 ```
 3. Install dependencies: 
 ```bash
@@ -53,7 +53,7 @@ npm install
 ```bash
 npm start
 ```
-2. Open your web browser and visit [http://localhost:3000/goit-react-hw-08-phonebook](http://localhost:3000/goit-react-hw-08-phonebook)
+2. Open your web browser and visit [http://localhost:3000/goit-react-hw-08-phonebook](http://localhost:3001/Phonebook-Frontend/)
 
 ## Features
 
@@ -89,7 +89,7 @@ Upon successful authentication, users are navigated to the home page with an inv
     - Path: `/contacts`
     - Features:
         - **Add Contact**:
-            - Fields: Name, Number
+            - Fields: Name, Phone, Email
             - Validation: User-friendly messages for each field.
 
             ![Add Contact](https://res.cloudinary.com/dc65egkoj/image/upload/v1697728985/protasevych-md-content/phonebook/addcontact.png)
