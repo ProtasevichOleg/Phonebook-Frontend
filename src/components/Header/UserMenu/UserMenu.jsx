@@ -9,7 +9,6 @@ import {
 
 const UserMenu = () => {
   const user = useSelector(state => state.auth.user);
-  console.log(user);
   const { name, avatarURL } = user;
   const dispatch = useDispatch();
   const onLogoutBtnClick = () => dispatch(logOut());

@@ -27,7 +27,7 @@ const deleteContactFulfilledReducer = (state, action) => ({
   ...state,
   isLoading: false,
   error: null,
-  items: state.items.filter(item => item.id !== action.payload.id),
+  items: state.items.filter(item => item._id !== action.payload.contactId),
 });
 
 export {
