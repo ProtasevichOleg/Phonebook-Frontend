@@ -18,6 +18,18 @@ export const isFieldEmpty = (fieldName, fieldValue, setNotification) => {
   return false;
 };
 
+export const isContactNameValid = (name, setNotification) => {
+  if (name.trim().length < 1 || name.trim().length > 100) {
+    setNotification({
+      type: 'error',
+      message: 'Name must be at least 3 characters long',
+    });
+    return false;
+  }
+
+  return true;
+};
+
 export const isNameValid = (name, setNotification) => {
   if (name.trim().length < 6 || name.trim().length > 30) {
     setNotification({

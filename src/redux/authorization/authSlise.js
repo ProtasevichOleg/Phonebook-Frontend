@@ -14,13 +14,17 @@ const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 
+  let errorMessage = 'Something went wrong. Check your data and try again.';
+  if (`${action.payload}` === 'Network Error') {
+    errorMessage = `${action.payload}`;
+  } else if (action.payload?.includes(409)) {
+    errorMessage = 'An account with the given email already exists.';
+  }
+
   MySwal.fire({
     icon: 'error',
     title: 'Oops...',
-    text:
-      `${action.payload}` === 'Network Error'
-        ? `${action.payload}`
-        : 'Something went wrong. Check your data and try again.',
+    text: errorMessage,
   });
 };
 
@@ -42,6 +46,18 @@ const authSlise = createSlice({
         state.user = action.payload.user;
         state.isLoggedIn = false;
         state.isLoading = false;
+
+        MySwal.fire({
+          icon: 'success',
+          title: 'Congratulations!',
+          text: 'Your account has been successfully created! Check your email and confirm registration',
+          timer: 4000,
+          timerProgressBar: true,
+          didOpen: toast => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
       })
       .addCase(register.rejected, handleRejected)
 
@@ -74,7 +90,12 @@ const authSlise = createSlice({
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, (state, action) => {
+        state.user = { email: null, password: null };
+        state.token = null;
+        state.isLoggedIn = false;
         state.isRefreshing = false;
+        state.error = null;
+        state.isLoading = false;
       });
   },
 });

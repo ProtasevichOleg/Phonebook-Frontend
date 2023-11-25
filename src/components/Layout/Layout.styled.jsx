@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
 `;
 
 export const Header = styled.header`
   position: fixed;
+  z-index: 2;
   width: 100%;
   height: 70px;
   background-color: ${props => props.theme.colors.layoutBackground};

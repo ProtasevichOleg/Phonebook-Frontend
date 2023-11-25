@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { register } from 'redux/authorization';
@@ -44,18 +44,21 @@ const RegisterForm = () => {
 
     if (password === confirm) {
       dispatch(register({ name, email, password }));
-      if (!isLoading && !error) {
-        setName('');
-        setEmail('');
-        setPassword('');
-        setConfirm('');
-        setNameFieldAlert(null);
-        setEmailFieldAlert(null);
-        setPasswordFieldAlert(null);
-        setConfirmFieldAlert(null);
-      }
     }
   };
+
+  useEffect(() => {
+    if (!isLoading && !error) {
+      setName('');
+      setEmail('');
+      setPassword('');
+      setConfirm('');
+      setNameFieldAlert(null);
+      setEmailFieldAlert(null);
+      setPasswordFieldAlert(null);
+      setConfirmFieldAlert(null);
+    }
+  }, [isLoading, error]);
 
   const handleNameInputChange = event => setName(event.target.value);
   const handleEmailInputChange = event => setEmail(event.target.value);
