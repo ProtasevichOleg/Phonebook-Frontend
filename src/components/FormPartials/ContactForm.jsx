@@ -25,9 +25,7 @@ const ContactForm = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-
   const contacts = useSelector(selectContacts);
-
   const nameInputId = useRef(nanoid());
   const phoneInputId = useRef(nanoid());
   const emailInputId = useRef(nanoid());

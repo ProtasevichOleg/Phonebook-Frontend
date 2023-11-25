@@ -1,4 +1,3 @@
-// ContactPage.jsx
 import { ContactList, Filter } from 'components/ContactsPage';
 import { ContactForm } from 'components/FormPartials';
 import { Container, MainTitle, Section, SubTitle } from 'components/Common';

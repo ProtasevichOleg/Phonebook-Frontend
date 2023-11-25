@@ -1,4 +1,3 @@
-// RegisterPage.jsx
 import {
   Container,
   MainTitle,

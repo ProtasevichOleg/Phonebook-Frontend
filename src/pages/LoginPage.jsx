@@ -1,4 +1,3 @@
-// LoginPage.jsx
 import { Container, MainTitle, Section } from 'components/Common';
 import { LoginForm } from 'components/FormPartials';
 import { WelcomeMessage } from 'components/Common';
