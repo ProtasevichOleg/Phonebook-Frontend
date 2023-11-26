@@ -8,7 +8,7 @@ import {
   DeleteButton,
 } from './ContactListItem.styled';
 
-const ContactListItem = ({ name, phone, _id }) => {
+const ContactListItem = ({ _id, name, phone, email }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -18,8 +18,9 @@ const ContactListItem = ({ name, phone, _id }) => {
   return (
     <ContactItem>
       <ContactInfoList>
-        <ContactInfoItem className="name">{name}</ContactInfoItem>
+        <ContactInfoItem>{name}</ContactInfoItem>
         <ContactInfoItem>{phone}</ContactInfoItem>
+        <ContactInfoItem>{email}</ContactInfoItem>
       </ContactInfoList>
       <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
     </ContactItem>
