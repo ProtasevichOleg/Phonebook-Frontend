@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import { loginization } from 'redux/authorization';
 import { handleAuthFieldBlur } from 'utils';
-import { Form, Label, FormAlert, SubmitButton } from 'components/FormPartials';
+import { Form, Label, FormAlert } from 'components/FormPartials';
+import Button from 'components/Common/Button/Button';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -55,7 +56,7 @@ const LoginForm = () => {
         validationStatus={passwordFieldAlert}
       />
       <FormAlert fieldAlert={passwordFieldAlert} />
-      <SubmitButton buttonText="Log in" />
+      <Button type="submit" buttonText="Log in" />
     </Form>
   );
 };

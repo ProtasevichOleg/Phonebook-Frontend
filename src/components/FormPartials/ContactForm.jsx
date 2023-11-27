@@ -15,8 +15,9 @@ import {
   phoneValidationMessage,
   emailValidationMessage,
 } from 'assets';
-import { Form, Label, FormAlert, SubmitButton } from 'components/FormPartials';
+import { Form, Label, FormAlert } from 'components/FormPartials';
 import { countries } from 'utils/countries';
+import Button from 'components/Common/Button/Button';
 
 const ContactForm = () => {
   const [nameFieldNotification, setNameFieldNotification] = useState(null);
@@ -193,7 +194,7 @@ const ContactForm = () => {
         maxLength={100}
       />
       <FormAlert fieldAlert={emailFieldNotification} />
-      <SubmitButton buttonText="Add contact" />
+      <Button type="submit" buttonText="Add contact" />
     </Form>
   );
 };

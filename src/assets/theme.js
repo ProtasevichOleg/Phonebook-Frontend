@@ -7,6 +7,8 @@ const theme = {
     inputBorder: '#cccccc',
     buttonBackgroundDefault: '#3f51b5',
     buttonBackgroundHover: '#303f9f',
+    redButtonBackgroundDefault: '#dc3545',
+    redButtonBackgroundHover: '#c82333',
     buttonText: '#ffffff',
     layoutText: '#ffffff',
     layoutTextActive: '#61dafb',

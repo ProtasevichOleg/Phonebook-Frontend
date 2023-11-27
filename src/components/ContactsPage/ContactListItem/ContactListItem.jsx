@@ -5,8 +5,8 @@ import {
   ContactItem,
   ContactInfoList,
   ContactInfoItem,
-  DeleteButton,
 } from './ContactListItem.styled';
+import Button from 'components/Common/Button/Button';
 
 const ContactListItem = ({ _id, name, phone, email }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const ContactListItem = ({ _id, name, phone, email }) => {
         <ContactInfoItem>{phone}</ContactInfoItem>
         <ContactInfoItem>{email}</ContactInfoItem>
       </ContactInfoList>
-      <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
+      <Button onClick={handleDelete} buttonText={'Delete'} />
     </ContactItem>
   );
 };

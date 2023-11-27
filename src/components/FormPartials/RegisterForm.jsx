@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { register } from 'redux/authorization';
 import { handleAuthFieldBlur } from 'utils';
-import { Form, Label, FormAlert, SubmitButton } from 'components/FormPartials';
+import { Form, Label, FormAlert } from 'components/FormPartials';
+import Button from 'components/Common/Button/Button';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -107,7 +108,7 @@ const RegisterForm = () => {
         validationStatus={confirmFieldAlert}
       />
       <FormAlert fieldAlert={confirmFieldAlert} />
-      <SubmitButton buttonText="Register" />
+      <Button type="submit" buttonText="Register" />
     </Form>
   );
 };

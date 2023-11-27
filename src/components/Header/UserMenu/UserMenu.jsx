@@ -1,11 +1,7 @@
 import { logOut } from 'redux/authorization';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  UserMenuStyled,
-  Avatar,
-  UserName,
-  LogoutButton,
-} from './UserMenu.styled';
+import { UserMenuStyled, Avatar, UserName } from './UserMenu.styled';
+import Button from 'components/Common/Button/Button';
 
 const UserMenu = () => {
   const user = useSelector(state => state.auth.user);
@@ -16,9 +12,7 @@ const UserMenu = () => {
     <UserMenuStyled>
       <Avatar src={avatarURL} alt="Avatar" />
       <UserName>{name}</UserName>
-      <LogoutButton type="button" onClick={onLogoutBtnClick}>
-        Log out
-      </LogoutButton>
+      <Button onClick={onLogoutBtnClick} buttonText={'Log out'} isRed="isRed" />
     </UserMenuStyled>
   );
 };

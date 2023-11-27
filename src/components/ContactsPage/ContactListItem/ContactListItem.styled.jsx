@@ -20,16 +20,3 @@ export const ContactInfoItem = styled.li`
     font-size: 16px;
   }
 `;
-
-export const DeleteButton = styled.button`
-  padding: 5px;
-  border-radius: 5px;
-  border: none;
-  background-color: ${({ theme }) => theme.colors.buttonBackgroundDefault};
-  color: ${({ theme }) => theme.colors.buttonText};
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.buttonBackgroundHover};
-  }
-`;

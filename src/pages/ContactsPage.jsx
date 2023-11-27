@@ -2,6 +2,7 @@ import { ContactList, Filter } from 'components/ContactsPage';
 import { Container, MainTitle, Section, SubTitle } from 'components/Common';
 import { useState } from 'react';
 import Modal from 'components/Common/Modal/Modal';
+import Button from 'components/Common/Button/Button';
 
 const ContactsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +15,7 @@ const ContactsPage = () => {
     <Container>
       <Section>
         <MainTitle title="Contacts" isHidden />
-        <button onClick={toggleModal}>Open Contact Form</button>
+        <Button buttonText="Open Contact Form" onClick={toggleModal} />
         <SubTitle title="Your Contacts" />
         <Filter />
         <ContactList />

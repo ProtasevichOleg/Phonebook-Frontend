@@ -17,20 +17,3 @@ export const Avatar = styled.img`
 export const UserName = styled.p`
   //
 `;
-
-export const LogoutButton = styled.button`
-  padding: 5px 15px;
-  font-size: 0.875rem;
-  color: #fff;
-  background-color: #dc3545;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:active,
-  &:hover,
-  &:focus {
-    outline: none;
-    background-color: #c82333;
-  }
-`;
